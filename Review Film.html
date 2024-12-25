@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Film - Sekawan Limo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('content-background.jpeg'); /* Path gambar background */
+            background-size: cover; /* Membuat gambar menutupi seluruh layar */
+            background-position: center; /* Memusatkan gambar */
+            background-repeat: no-repeat; /* Mencegah pengulangan */
+            background-attachment: fixed; /* Background tetap saat scrolling */
+            color: white;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 2em;
+        }
+        .header h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif; /* Menggunakan Montserrat untuk judul */
+            font-size: 4em; /* Ukuran font lebih besar */
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-right: 2em; /* Memberikan jarak dengan rating */
+        }
+        nav {
+            display: flex;
+            gap: 1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 0.5em 1em;
+            background-color: rgba(58, 58, 58, 0.8);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+        }
+        .content {
+            max-width: 1200px;
+            margin: 2em auto;
+            background-color: rgba(0, 51, 102, 0.7); /* Transparansi biru gelap yang sama */
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+        }
+        .left-side {
+            width: 55%; /* Lebar sisi kiri */
+        }
+        .right-side {
+            width: 40%; /* Lebar sisi kanan */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .main-characters {
+            position: relative;
+            text-align: center;
+            margin: 2em 0;
+        }
+        .main-characters img {
+            width: 100%;
+            max-width: 800px; /* Memperbesar ukuran poster */
+            border-radius: 10px;
+        }
+        .character-name {
+            position: absolute;
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+        }
+        .character-name.one {
+            top: 5%;
+            left: 15%;
+        }
+        .character-name.two {
+            top: 0%;
+            left: 75%;
+        }
+        .character-name.three {
+            bottom: 30%;
+            left: 0%;
+        }
+        .character-name.four {
+            bottom: 30%;
+            right: 0%;
+        }
+        .character-name.five {
+            bottom: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .movie-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1em;
+        }
+        .left-info {
+            text-align: left;
+            font-size: 0.9em;
+        }
+        .right-info h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0; /* Memberikan jarak bawah */
+            text-align: right; /* Memindahkan judul film ke kanan */
+        }
+        .synopsis {
+            margin-top: 1em;
+            font-size: 1.2em;
+            line-height: 1.6em;
+        }
+        .moral-story {
+            margin-top: 2em;
+            font-style: italic;
+            background: rgba(47, 47, 47, 0.1);
+            padding: 1em;
+            border-left: 5px solid rgba(85, 85, 85, 0.3);
+        }
+        .author {
+            text-align: right;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        .rating-buttons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 2em;
+            margin-top: 1em;
+        }
+        .rating-button img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .rating-button img:hover {
+            transform: scale(1.1);
+        }
+        .rating-button#like-button.liked {
+            filter: brightness(1.5);
+        }
+        .rating-button#dislike-button.disliked {
+            filter: brightness(1.5);
+        }
+
+        .post-info {
+            display: flex;
+            margin-top: 2em;
+        }
+
+        .post-info img {
+            width: 250px; /* Memperbesar ukuran poster */
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .options {
+            display: flex;
+            gap: 1em;
+            align-items: center;
+            flex-direction: column;
+            margin-left: 2em;
+        }
+
+        .options button {
+            background-color: rgba(58, 58, 58, 0.8);
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 150px; /* Lebar tombol lebih besar */
+        }
+
+        .options button:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+        }
+
+        .content-box {
+            display: none;
+            margin-top: 1em;
+            font-size: 1.2em;
+            width: 60%; /* Lebar konten lebih kecil dari poster */
+            margin-left: 2em; /* Menjauh dari poster */
+        }
+
+        .default-content {
+            display: block;
+            margin-top: 1em;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        .review {
+            margin-top: 2em;
+        }
+
+        .review .username {
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .review .stars {
+            color: gold;
+            font-size: 1.2em;
+        }
+
+        .review p {
+            font-size: 0.9em; /* Ukuran font lebih kecil */
+            line-height: 1.6em;
+            margin: 0.5em 0;
+        }
+
+        /* Popup Like dan Dislike */
+        .popup-like {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Movie Review</h1>
+        <nav>
+            <a href="deskripsi.html">Description</a>
+            <a href="sutradara.html">Director</a>
+            <a href="other_movies.html">Other Movies</a>
+        </nav>
+    </div>
+
+<div class="content">
+        <div class="left-side">
+            <div class="main-characters">
+                <img src="sekawan limo pemeran.png" alt="Pemeran utama">
+                <div class="character-name one"><a href="https://www.instagram.com/indrapramujito/" style="color: white;">Indra Pramujito</a></div>
+                <div class="character-name two"><a href="https://www.instagram.com/benidictivity/" style="color: white;">Benidictus Siregar</a></div>
+                <div class="character-name three"><a href="https://www.instagram.com/firzavalaza_/" style="color: white;">Firza Valaza</a></div>
+                <div class="character-name four"><a href="https://www.instagram.com/nadyaarina/" style="color: white;">Nadya Arina</a></div>
+                <div class="character-name five"><a href="https://www.instagram.com/moektito/" style="color: white;">Bayu Skak</a></div>
+            </div>
+
+            <div class="movie-info">
+                <div class="left-info">
+                    <p><strong>Tahun:</strong> 2024</p>
+                    <p><strong>Genre:</strong> Komedi, Horor, Persahabatan</p>
+                    <p><strong>Durasi:</strong> 1 jam 45 menit</p>
+                    <p><strong>Rating:</strong> 4.7/5 (Google)</p>
+                </div>
+                <div class="right-info">
+                    <h2>Sekawan Limo</h2>
+                </div>
+            </div>
+
+            <div class="rating-buttons">
+                <div class="rating-button" id="like-button">
+                    <img src="like.png" alt="Like">
+                </div>
+                <div class="rating-button" id="dislike-button">
+                    <img src="dislike.png" alt="Dislike">
+                </div>
+            </div>
+            <p><a href="Tentang Penulis.html" style="color: white;">Tentang Penulis</a></p>
+        </div>
+
+        <div class="right-side">
+            <div class="default-content">
+                <p><strong>Selamat datang di review film Sekawan Limo!</strong> Pilih salah satu tombol untuk melihat informasi lebih lanjut tentang film ini.</p>
+            </div>
+            <div class="post-info">
+                <img src="poster sekawan limo.jpg" alt="Poster Sekawan Limo">
+                <div class="options">
+                    <button onclick="showContent('ringkasan')">Ringkasan</button>
+                    <button onclick="showContent('ulasan')">Ulasan</button>
+                    <button onclick="showContent('cuplikan')">Cuplikan</button>
+                    <button onclick="showContent('klip')">Klip</button>
+                </div>
+            </div>
+
+            <div id="ringkasan" class="content-box" style="display: block;">
+                <p><strong>Ringkasan:</strong> "Sekawan Limo" adalah film Indonesia yang berhasil menyajikan tontonan yang menghibur sekaligus menegangkan. Jika kamu menyukai film horor dengan sentuhan komedi dan ingin tahu lebih banyak tentang mitos-mitos gunung, film ini wajib kamu tonton!</p>
+            </div>
+            <div id="ulasan" class="content-box">
+                <div class="review">
+                    <div class="username">Dewi (Penonton)</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Film ini menyentuh banget! Ceritanya sederhana, tapi bisa bikin kita merenung tentang pentingnya persahabatan. Humornya juga pas, nggak lebay."</p>
+                </div>
+                <div class="review">
+                    <div class="username">Andi (Penonton)</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Seru banget! Aktor-aktor muda tampil keren banget, apalagi chemistry mereka semua terasa alami."</p>
+                </div>
+            </div>
+    <div id="cuplikan" class="content-box">
+                <p><strong>Cuplikan:</strong> Saksikan cuplikan film Sekawan Limo yang penuh dengan momen lucu dan seru!</p>
+                <!-- Menampilkan tiga foto cuplikan film -->
+                <div class="cuplikan-images">
+                    <img src="Cuplikan 1.png" alt="Cuplikan 1" width="100%" style="margin-bottom: 1em;">
+                    <img src="Cuplikan 2.png" alt="Cuplikan 2" width="100%" style="margin-bottom: 1em;">
+                    <img src="Cuplikan 3.png" alt="Cuplikan 3" width="100%">
+                </div>
+            </div>
+<div id="klip" class="content-box">
+       <h2>Trailer Film - Sekawan Limo</h2>
+        <p>Nikmati trailer eksklusif dari film Sekawan Limo yang menghibur dan penuh pesan persahabatan!</p>
+        <div class="trailer-section">
+            <iframe 
+                src="https://www.youtube.com/embed/ERZncVUuKlk" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="footer">
+            &copy; 2024 Sekawan Limo. All rights reserved.
+        </div>
+
+    <!-- Pop-up untuk tombol like dan dislike -->
+    <div class="popup-like" id="popup-like">
+        <p>Terima kasih telah memberikan feedback!</p>
+    </div>
+
+    <script>
+        // Fungsi untuk menampilkan konten berdasarkan tombol yang dipilih
+        function showContent(contentType) {
+            // Sembunyikan semua konten
+            document.querySelectorAll('.content-box').forEach(content => {
+                content.style.display = 'none';
+            });
+            // Tampilkan konten yang dipilih
+            document.getElementById(contentType).style.display = 'block';
+        }
+
+        // Fungsi untuk menampilkan pop-up saat tombol like atau dislike diklik
+        document.getElementById("like-button").addEventListener("click", function() {
+            const popup = document.querySelector('.popup-like');
+            popup.style.display = 'block';
+            setTimeout(function() {
+                popup.style.display = 'none';
+            }, 3000); // Menyembunyikan pop-up setelah 3 detik
+        });
+
+        document.getElementById("dislike-button").addEventListener("click", function() {
+            const popup = document.querySelector('.popup-like');
+            popup.style.display = 'block';
+            setTimeout(function() {
+                popup.style.display = 'none';
+            }, 3000); // Menyembunyikan pop-up setelah 3 detik
+        });
+    </script>
+</body>
+</html>

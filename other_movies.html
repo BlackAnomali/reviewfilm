@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Movies - Bayu Skak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(0, 51, 102, 0.9);
+            text-align: center;
+            color: white;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+        }
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .movie-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .movie-item:hover {
+            transform: scale(1.05);
+        }
+        .movie-item img {
+            width: 100%;
+            height: auto;
+        }
+        .movie-title {
+            padding: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .movie-info {
+            padding: 10px;
+            font-size: 1em;
+            color: #555;
+        }
+        .movie-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block; /* Agar <a> tidak memengaruhi tata letak grid */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Other Movies</h1>
+        <p>Film-film lain karya Bayu Skak</p>
+    </header>
+
+    <main>
+        <div class="movie-grid">
+            <div class="movie-item">
+                <a href="https://id.wikipedia.org/wiki/Yowis_Ben">
+                    <img src="Poster Yowis Ben.jpg" alt="Poster Yowis Ben">
+                    <div class="movie-title">Yowis Ben</div>
+                    <div class="movie-info">Genre: Drama,Komedi<br>Rating: 4.5/5</div>
+                </a>
+            </div>
+            <div class="movie-item">
+                <a href="https://id.wikipedia.org/wiki/Yowis_Ben_2">
+                    <img src="poster_yowis_ben_2.jpg" alt="Poster Yowis Ben 2">
+                    <div class="movie-title">Yowis Ben 2</div>
+                    <div class="movie-info">Genre: Drama,Komedi,Musikal<br>Rating: 4.4/5</div>
+                </a>
+            </div>
+            <div class="movie-item">
+                <a href="https://id.wikipedia.org/wiki/Yowis_Ben_3">
+                    <img src="poster_yowis_ben_3.jpg" alt="Poster Yowis Ben 3">
+                    <div class="movie-title">Yowis Ben 3</div>
+                    <div class="movie-info">Genre: Drama,Komedi<br>Rating: 4.3/5</div>
+                </a>
+            </div>
+            <div class="movie-item">
+                <a href="https://id.wikipedia.org/wiki/Yowis_Ben_Finale">
+                    <img src="poster_yowis_ben_finale.jpg" alt="Poster Yowis Ben Finale">
+                    <div class="movie-title">Yowis Ben Finale</div>
+                    <div class="movie-info">Genre: Drama,Komedi<br>Rating: 4.2/5</div>
+                </a>
+            </div>
+            <div class="movie-item">
+                <a href="https://id.wikipedia.org/wiki/Lara_Ati_(film)">
+                    <img src="poster_lara_ati.jpg" alt="Poster Lara Ati">
+                    <div class="movie-title">Lara Ati</div>
+                    <div class="movie-info">Genre: Drama Komedi<br>Rating: 4.6/5</div>
+                </a>
+            </div>
+            <div class="movie-item">
+                <a href="Review Film.html">
+                    <img src="poster sekawan limo.jpg" alt="Poster Sekawan Limo">
+                    <div class="movie-title">Sekawan Limo</div>
+                    <div class="movie-info">Genre: Horor,Komedi,Petualangan<br>Rating: 4.7/5</div>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
